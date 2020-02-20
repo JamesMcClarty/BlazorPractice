@@ -27,7 +27,15 @@ namespace BlazorDapperCRUD
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+
+            //SQL Database Connection
+
+            var SQLConnectionConfiguration = new SQLConnectionConfiguration(Configuration.GetConnectionString("SqlDbContext"));
+            services.AddSingleton(SQLConnectionConfiguration);
+
+            //Debugging
+
+            services.AddServerSideBlazor(o => o.DetailedErrors = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
