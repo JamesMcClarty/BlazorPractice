@@ -27,6 +27,7 @@ namespace BlazorDapperCRUD
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddScoped<IVideoService, VideoService>();
 
             //SQL Database Connection
 
